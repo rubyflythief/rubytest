@@ -1,4 +1,4 @@
-node('slave1'){
+node('Ruby_Linux_Node'){
     // Mark the code checkout 'stage'....
     stage('Checkout'){
     // Get some code from a GitHub repository
