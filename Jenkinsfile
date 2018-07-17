@@ -20,19 +20,18 @@ node('Ruby_Linux_Node')
              }
         stage('Run Exception')
                 {
-                    currentStage.result = 'SUCCESS'
                     try{
                         echo 'Catch exception'
                         //find an non-exit file
                         File source = new File("/home/test.txt")
                         //report fail
-                        def result = "FAILURE"
+                        currentBuild.result = 'SUCCESS'
                     }catch (e){
                         echo "failed due to $e"
+                        currentBuild.result = 'FAILURE'
                     }finally{
                         echo 'test done'
-                        echo "$result"
-                        currentStage.result = $result
+                        echo "RESULT: ${currentBuild.result}"
                     }
                 }
     }
