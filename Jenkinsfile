@@ -16,7 +16,7 @@ node('Ruby_Linux_Node')
          stage('Build')
             {
                 // Run the program
-                echo "test"
+                echo "Build Stage"
              }
         stage('Run Exception')
                 {
@@ -25,18 +25,22 @@ node('Ruby_Linux_Node')
                         //find an non-exit file
                         File source = new File("/home/test.txt")
                         //report fail
-                        //currentBuild.result = 'SUCCESS'
-                        currentStage.result = 'SUCCESS'
+                        currentBuild.result = 'SUCCESS'
+                        //currentStage.result = 'SUCCESS'
                     }catch (e){
                         echo "failed due to $e"
-                        //currentBuild.result = 'FAILURE'
-                        currentStage.result = 'FAILURE'
+                        currentBuild.result = 'FAILURE'
+                        //currentStage.result = 'FAILURE'
+                        throw e
                     }finally{
                         echo 'test done'
-                        //echo "RESULT: ${currentBuild.result}"
-                        echo "RESULT: ${currentStage.result}"
+                        echo "RESULT: ${currentBuild.result}"
+                        //echo "RESULT: ${currentStage.result}"
                     }
                 }
+        stage('Test'){
+            echo 'Test Stage'
+        }
     }
 }
 
