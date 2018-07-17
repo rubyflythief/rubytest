@@ -26,7 +26,7 @@ node('Ruby_Linux_Node')
                        // File source = new File("/home/test.txt")
                         //report fail
                         //currentBuild.result = 'SUCCESS'
-                        //currentStage.result = 'SUCCESS'
+                        currentStage.result = 'UNSTABLE'
                     }catch (e){
                         echo "failed due to $e"
                         currentBuild.result = 'FAILURE'
