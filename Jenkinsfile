@@ -33,7 +33,7 @@ node('Ruby_Linux_Node')
                         currentStage.result = 'FAILURE'
                     }finally{
                         echo 'test done'
-                        echo "RESULT: ${currentBuild.result}"
+                        //echo "RESULT: ${currentBuild.result}"
                         echo "RESULT: ${currentStage.result}"
                     }
                 }
