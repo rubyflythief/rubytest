@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
-/*import org.jenkinsci.plugins.pipeline.utility.steps.fs.FileWrapper
-import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
+import org.jenkinsci.plugins.pipeline.utility.steps.fs.FileWrapper
+/*import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 import java.net.URLEncoder
 import java.util.regex.Matcher
 import groovy.transform.Field
@@ -20,18 +20,19 @@ node('Ruby_Linux_Node')
              }
         stage('Run Exception')
                 {
+                    currentStage.result = 'SUCCESS'
                     try{
                         echo 'Catch exception'
                         //find an non-exit file
                         File source = new File("/home/test.txt")
                         //report fail
-                        currentBuild.result = "FAILED"
+                        def result = "FAILURE"
                     }catch (e){
                         echo "failed due to $e"
-
                     }finally{
                         echo 'test done'
-                        echo "$currentBuild.result"
+                        echo "$result"
+                        currentStage.result = $result
                     }
                 }
     }
