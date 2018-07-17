@@ -25,7 +25,7 @@ node('Ruby_Linux_Node')
                         //find an non-exit file
                        // File source = new File("/home/test.txt")
                         //report fail
-                        currentBuild.result = 'UNSTABLE'
+                        currentBuild.result = 'FAILURE'
                         //currentStage.result = 'UNSTABLE'
                     }catch (e){
                         echo "failed due to $e"
