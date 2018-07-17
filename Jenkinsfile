@@ -25,13 +25,16 @@ node('Ruby_Linux_Node')
                         //find an non-exit file
                         File source = new File("/home/test.txt")
                         //report fail
-                        currentBuild.result = 'SUCCESS'
+                        //currentBuild.result = 'SUCCESS'
+                        currentStage.result = 'SUCCESS'
                     }catch (e){
                         echo "failed due to $e"
-                        currentBuild.result = 'FAILURE'
+                        //currentBuild.result = 'FAILURE'
+                        currentStage.result = 'FAILURE'
                     }finally{
                         echo 'test done'
                         echo "RESULT: ${currentBuild.result}"
+                        echo "RESULT: ${currentStage.result}"
                     }
                 }
     }
