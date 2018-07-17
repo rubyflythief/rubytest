@@ -23,9 +23,9 @@ node('Ruby_Linux_Node')
                     try{
                         echo 'Catch exception'
                         //find an non-exit file
-                        File source = new File("/home/test.txt")
+                       // File source = new File("/home/test.txt")
                         //report fail
-                        currentBuild.result = 'SUCCESS'
+                        //currentBuild.result = 'SUCCESS'
                         //currentStage.result = 'SUCCESS'
                     }catch (e){
                         echo "failed due to $e"
