@@ -8,6 +8,7 @@ import groovy.transform.Field
 import javax.ws.rs.core.UriBuilder
 */
 import java.io.File
+
 node('Ruby_Linux_Node')
 {
     timestamps 
@@ -21,17 +22,19 @@ node('Ruby_Linux_Node')
                 {
                     try{
                         echo 'Catch exception'
-                        //find a non-exit file
+                        //find an non-exit file
                         File source = new File("/home/test.txt")
-
+                        //report fail
+                        currentBuild.result = "FAILED"
                     }catch (e){
                         echo "failed due to $e"
+
                     }finally{
                         echo 'test done'
+                        echo "$currentBuild.result"
                     }
                 }
     }
-
 }
 
 
